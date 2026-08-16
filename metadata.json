@@ -1,0 +1,6 @@
+{
+  "name": "Atul Chemicals",
+  "description": "Clean, modern B2B chemical manufacturing and distribution portal with product catalog and multi-step requirement inquiry system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
