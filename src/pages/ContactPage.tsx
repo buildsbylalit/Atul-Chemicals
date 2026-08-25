@@ -106,11 +106,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-teal-700 shrink-0" />
-                  <span>+91 (022) 2456-7890 / +91 (022) 2456-7891</span>
+                  <span>+91 9021561915 / +91 9922275337</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-teal-700 shrink-0" />
-                  <span>info@atulchemicals.example</span>
+                  <span>sales@atulchemicalsgroup.in</span>
                 </div>
               </div>
             </div>

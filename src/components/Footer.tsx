@@ -1,16 +1,11 @@
 import React from 'react';
 import { 
   FlaskConical, 
-  MapPin, 
-  Phone, 
-  Mail, 
   Clock, 
   ShieldCheck, 
-  ArrowUpRight, 
   CheckCircle2 
 } from 'lucide-react';
 import { PageRoute } from '../types';
-import { CHEMICAL_CATEGORIES } from '../data/products';
 
 interface FooterProps {
   onNavigate: (route: PageRoute) => void;
@@ -71,10 +66,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
       {/* Main Footer Links */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
           
           {/* Company Bio */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="space-y-4 max-w-xl">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNav('home')}>
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-900 to-teal-600 flex items-center justify-center text-white shadow-md">
                 <FlaskConical className="w-5 h-5 text-teal-200" />
@@ -88,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            <p className="text-sm text-slate-400 leading-relaxed pr-4">
+            <p className="text-sm text-slate-400 leading-relaxed">
               Atul Chemicals is a dependable B2B manufacturer and distributor of high-purity industrial solvents, specialty polymers, water treatment compounds, and chemical intermediates serving global manufacturing industries.
             </p>
 
@@ -100,96 +95,57 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* Quick Navigation */}
-          <div>
-            <h3 className="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
-              Quick Navigation
-            </h3>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <button onClick={() => handleNav('home')} className="hover:text-teal-400 transition-colors flex items-center gap-1">
-                  <span>Home</span>
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('about')} className="hover:text-teal-400 transition-colors flex items-center gap-1">
-                  <span>About Us</span>
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('products')} className="hover:text-teal-400 transition-colors flex items-center gap-1">
-                  <span>Chemical Products</span>
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('how-it-works')} className="hover:text-teal-400 transition-colors flex items-center gap-1">
-                  <span>How It Works</span>
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('requirement-list')} className="hover:text-teal-400 transition-colors flex items-center gap-1">
-                  <span>Requirement List</span>
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('contact')} className="hover:text-teal-400 transition-colors flex items-center gap-1">
-                  <span>Contact Us</span>
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Product Categories */}
-          <div>
-            <h3 className="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
-              Key Categories
-            </h3>
-            <ul className="space-y-2.5 text-sm">
-              {CHEMICAL_CATEGORIES.slice(1, 6).map((cat) => (
-                <li key={cat}>
-                  <button 
-                    onClick={() => handleNav('products')}
-                    className="text-left hover:text-teal-400 transition-colors text-slate-400 line-clamp-1"
-                  >
-                    {cat}
-                  </button>
-                </li>
-              ))}
-              <li>
-                <button 
-                  onClick={() => handleNav('products')}
-                  className="text-teal-400 font-semibold flex items-center gap-1 hover:underline text-xs mt-1"
-                >
-                  <span>View All 12+ Chemicals</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </button>
-              </li>
-            </ul>
-          </div>
-
           {/* Office & Plant Contact */}
-          <div>
+          <div id="footer-contact-section" className="flex flex-col md:pl-6 lg:pl-12 md:border-l md:border-slate-800/80">
             <h3 className="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
               Contact & Works
             </h3>
+            
             <div className="space-y-3 text-sm text-slate-400">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
-                <span>
-                  Plot No. 42-45, Chemical Industrial Zone, MIDC Phase II, Maharashtra, India
-                </span>
+              {/* Address / Map Integration */}
+              <div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=19,+Shivaji+Nagar,+Nashik"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Open location in Google Maps"
+                  className="text-slate-300 hover:text-teal-400 transition-colors inline-block font-medium hover:underline leading-relaxed"
+                >
+                  19, Shivaji Nagar, Nashik
+                </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>+91 (022) 2456-7890</span>
+
+              {/* Direct Phone Numbers */}
+              <div className="flex flex-wrap items-center gap-x-2 text-slate-300 font-medium">
+                <a 
+                  href="tel:+919021561915" 
+                  className="hover:text-teal-400 transition-colors hover:underline"
+                >
+                  +91 9021561915
+                </a>
+                <span className="text-slate-600">,</span>
+                <a 
+                  href="tel:+919922275337" 
+                  className="hover:text-teal-400 transition-colors hover:underline"
+                >
+                  +91 9922275337
+                </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-teal-400 shrink-0" />
-                <span className="break-all">sales@atulchemicals.example</span>
+
+              {/* Direct Mail Integration */}
+              <div>
+                <a
+                  href="mailto:sales@atulchemicalsgroup.in"
+                  title="Send inquiry email"
+                  className="text-slate-300 hover:text-teal-400 transition-colors inline-block font-medium hover:underline break-all"
+                >
+                  sales@atulchemicalsgroup.in
+                </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>Mon – Sat: 09:00 AM – 06:30 PM</span>
+
+              {/* Operating Hours */}
+              <div className="text-xs text-slate-500 pt-1">
+                Mon – Sat: 09:00 AM – 06:30 PM (IST)
               </div>
             </div>
           </div>

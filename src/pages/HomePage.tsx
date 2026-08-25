@@ -240,7 +240,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               High-Demand Catalog
             </span>
             <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 mt-2">
-              Featured Chemical Products
+              LAUNDRY & DRY CLEANING CHEMICALS
             </h2>
             <p className="text-sm text-slate-600 mt-1 max-w-xl">
               Browse our core stock available for prompt dispatch in bulk tankers, IBCs, and HDPE drums.

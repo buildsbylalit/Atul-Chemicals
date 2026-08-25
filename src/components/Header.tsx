@@ -64,18 +64,18 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, onNavigate }) => {
           
           <div className="flex items-center gap-6">
             <a 
-              href="tel:+912224567890" 
+              href="tel:+919021561915" 
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
               <PhoneCall className="w-3.5 h-3.5 text-teal-400" />
-              <span>+91 (022) 2456-7890</span>
+              <span>+91 9021561915 / +91 9922275337</span>
             </a>
             <a 
-              href="mailto:sales@atulchemicals.example" 
+              href="mailto:sales@atulchemicalsgroup.in" 
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-teal-400" />
-              <span>sales@atulchemicals.example</span>
+              <span>sales@atulchemicalsgroup.in</span>
             </a>
           </div>
         </div>

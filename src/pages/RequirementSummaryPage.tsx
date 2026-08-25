@@ -53,7 +53,7 @@ export const RequirementSummaryPage: React.FC<RequirementSummaryPageProps> = ({ 
     try {
       const generatedRef = `AC-REQ-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
       
-      // Send Bill & PDF to Owner WhatsApp: 7218363123
+      // Send Bill & PDF to Owner WhatsApp: 9021561915
       sendBillAndPDFToOwner({
         referenceCode: generatedRef,
         customer,
@@ -76,7 +76,7 @@ export const RequirementSummaryPage: React.FC<RequirementSummaryPageProps> = ({ 
     try {
       const generatedRef = `AC-REQ-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
       
-      // Send Bill & PDF to Owner Email: 1712lalitsonawane@gmail.com
+      // Send Bill & PDF to Owner Email: sales@atulchemicalsgroup.in
       sendBillAndEmailToOwner({
         referenceCode: generatedRef,
         customer,
@@ -359,7 +359,7 @@ export const RequirementSummaryPage: React.FC<RequirementSummaryPageProps> = ({ 
                 ) : (
                   <>
                     <MessageSquare className="w-4 h-4 fill-white/20" />
-                    <span>Send Order to WhatsApp</span>
+                    <span>Order via Whatsapp</span>
                   </>
                 )}
               </button>
@@ -397,7 +397,7 @@ export const RequirementSummaryPage: React.FC<RequirementSummaryPageProps> = ({ 
                   ) : (
                     <>
                       <Mail className="w-4 h-4" />
-                      <span>Send Order to Email</span>
+                      <span>Order via Email</span>
                     </>
                   )}
                 </button>

@@ -51,7 +51,7 @@ export const SuccessPage: React.FC<SuccessPageProps> = ({ onNavigate }) => {
     try {
       const doc = generateQuotationPDF(quotationData);
       const sanitizedRef = referenceCode.replace(/[^a-zA-Z0-9_-]/g, '_');
-      doc.save(`Bill_Quotation_${sanitizedRef}.pdf`);
+      doc.save(`Atul_Chemicals_Group_Bill_${sanitizedRef}.pdf`);
     } catch (e) {
       console.error(e);
       window.print();

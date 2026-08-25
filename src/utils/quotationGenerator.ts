@@ -2,10 +2,10 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { CustomerDetails, RequirementItem } from '../types';
 
-export const OWNER_WHATSAPP_NUMBER = '917218363123';
-export const OWNER_WHATSAPP_DISPLAY = '+91 7218363123';
-export const OWNER_EMAIL = '1712lalitsonawane@gmail.com';
-export const OWNER_EMAIL_DISPLAY = '1712lalitsonawane@gmail.com';
+export const OWNER_WHATSAPP_NUMBER = '919021561915';
+export const OWNER_WHATSAPP_DISPLAY = '+91 9021561915';
+export const OWNER_EMAIL = 'sales@atulchemicalsgroup.in';
+export const OWNER_EMAIL_DISPLAY = 'sales@atulchemicalsgroup.in';
 
 export interface QuotationData {
   referenceCode: string;
@@ -47,13 +47,13 @@ export const generateQuotationPDF = (data: QuotationData): jsPDF => {
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(20);
-  doc.text('CHEMICAL ENTERPRISE', 14, 18);
+  doc.text('ATUL CHEMICALS GROUP', 14, 18);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(153, 246, 228); // teal-200
-  doc.text('Industrial & Specialty Chemical Solutions | Direct Owner Dispatch', 14, 25);
-  doc.text(`Official WhatsApp Desk: ${OWNER_WHATSAPP_DISPLAY}`, 14, 31);
+  doc.text('19, Shivaji Nagar, Nashik | sales@atulchemicalsgroup.in', 14, 25);
+  doc.text(`Direct Contact & WhatsApp: ${OWNER_WHATSAPP_DISPLAY} / +91 9922275337`, 14, 31);
 
   // Document Title Box
   doc.setFont('helvetica', 'bold');
@@ -184,13 +184,13 @@ export const generateQuotationPDF = (data: QuotationData): jsPDF => {
   // Footer
   doc.setFontSize(7.5);
   doc.setTextColor(148, 163, 184);
-  doc.text('Generated via Chemical Enterprise System - Direct Owner Dispatch Desk', 105, 287, { align: 'center' });
+  doc.text('Generated via Atul Chemicals Group - Direct B2B Supply & Dispatch Desk', 105, 287, { align: 'center' });
 
   return doc;
 };
 
 /**
- * Builds formatted text and universal WhatsApp URL to owner 7218363123.
+ * Builds formatted text and universal WhatsApp URL to owner 9021561915.
  */
 export const buildOwnerWhatsAppMessage = (data: QuotationData): string => {
   const { referenceCode, customer, items } = data;
@@ -202,7 +202,7 @@ export const buildOwnerWhatsAppMessage = (data: QuotationData): string => {
   const totalGst = totalTaxable * 0.18;
   const grandTotal = totalTaxable + totalGst;
 
-  let msg = `*🧾 NEW CHEMICAL REQUIREMENT & BILL*\n`;
+  let msg = `*🧾 ATUL CHEMICALS GROUP - NEW REQUIREMENT & BILL*\n`;
   msg += `*Ref ID:* ${referenceCode}\n`;
   msg += `*Date:* ${new Date().toLocaleDateString('en-IN')}\n\n`;
 
@@ -240,13 +240,13 @@ export const buildOwnerWhatsAppMessage = (data: QuotationData): string => {
     msg += `*📝 Special Remarks:* ${customer.additionalNotes}\n\n`;
   }
 
-  msg += `_Note: Formal PDF Quotation & Bill receipt generated for Ref ${referenceCode}_`;
+  msg += `_Note: Formal Atul Chemicals Group PDF Bill receipt generated for Ref ${referenceCode}_`;
 
   return msg;
 };
 
 /**
- * Returns the direct WhatsApp link to send the bill to owner 7218363123
+ * Returns the direct WhatsApp link to send the bill to owner 9021561915
  */
 export const getOwnerWhatsAppUrl = (data: QuotationData): string => {
   const message = buildOwnerWhatsAppMessage(data);
@@ -260,7 +260,7 @@ export const buildOwnerEmailSubject = (data: QuotationData): string => {
   const { referenceCode, customer } = data;
   const client = customer.fullName || 'Valued Client';
   const company = customer.companyName ? ` [${customer.companyName}]` : '';
-  return `New Chemical Order & Requirement - Ref: ${referenceCode} - ${client}${company}`;
+  return `Atul Chemicals Group - New Order & Requirement Ref: ${referenceCode} - ${client}${company}`;
 };
 
 /**
@@ -276,11 +276,11 @@ export const buildOwnerEmailBody = (data: QuotationData): string => {
   const totalGst = totalTaxable * 0.18;
   const grandTotal = totalTaxable + totalGst;
 
-  let body = `Dear Sales & Order Desk,\n\n`;
+  let body = `Dear Atul Chemicals Group Sales Desk,\n\n`;
   body += `A new chemical requirement order / quotation request has been placed.\n`;
   body += `Please find the commercial details below:\n\n`;
   body += `========================================\n`;
-  body += `ORDER / INQUIRY DETAILS\n`;
+  body += `ATUL CHEMICALS GROUP - ORDER / BILL DETAILS\n`;
   body += `========================================\n`;
   body += `• Reference ID: ${referenceCode}\n`;
   body += `• Date: ${new Date().toLocaleDateString('en-IN')}\n\n`;
@@ -324,9 +324,9 @@ export const buildOwnerEmailBody = (data: QuotationData): string => {
     body += `${customer.additionalNotes}\n\n`;
   }
 
-  body += `(Note: An official PDF Bill & Quotation has been generated with file name Bill_Quotation_${referenceCode}.pdf)\n\n`;
+  body += `(Note: An official PDF Bill has been generated with file name Atul_Chemicals_Group_Bill_${referenceCode}.pdf)\n\n`;
   body += `Warm regards,\n`;
-  body += `${customer.fullName || 'Chemical Enterprise Client'}\n`;
+  body += `${customer.fullName || 'Atul Chemicals Client'}\n`;
   body += `${customer.phone ? `Phone: ${customer.phone}\n` : ''}`;
 
   return body;
@@ -358,7 +358,7 @@ export const sendBillAndPDFToOwner = (data: QuotationData) => {
     // 1. Generate & download PDF bill
     const doc = generateQuotationPDF(data);
     const sanitizedRef = data.referenceCode.replace(/[^a-zA-Z0-9_-]/g, '_');
-    doc.save(`Bill_Quotation_${sanitizedRef}.pdf`);
+    doc.save(`Atul_Chemicals_Group_Bill_${sanitizedRef}.pdf`);
   } catch (e) {
     console.error('Error generating PDF bill:', e);
   }
@@ -369,14 +369,14 @@ export const sendBillAndPDFToOwner = (data: QuotationData) => {
 };
 
 /**
- * Generates & downloads PDF bill and opens Email compose to Owner (1712lalitsonawane@gmail.com).
+ * Generates & downloads PDF bill and opens Email compose to Owner (sales@atulchemicalsgroup.in).
  */
 export const sendBillAndEmailToOwner = (data: QuotationData, method: 'mailto' | 'gmail' = 'mailto') => {
   try {
     // 1. Generate & download PDF bill
     const doc = generateQuotationPDF(data);
     const sanitizedRef = data.referenceCode.replace(/[^a-zA-Z0-9_-]/g, '_');
-    doc.save(`Bill_Quotation_${sanitizedRef}.pdf`);
+    doc.save(`Atul_Chemicals_Group_Bill_${sanitizedRef}.pdf`);
   } catch (e) {
     console.error('Error generating PDF bill for email:', e);
   }
